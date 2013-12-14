@@ -100,8 +100,8 @@ bool MegaMaze::moveCheck(int xmove, int ymove){
 void MegaMaze::winLevel(){
 	xpos=0;
 	ypos=0;
-	if(level<levelCount){
-		level++;
+	level++;
+	if(level<levelCount-1){
 		updateLevelDisplay();
 	}else{
 		lcd->write(22);
