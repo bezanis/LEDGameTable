@@ -67,3 +67,11 @@ void LCD::setLCD(int i){
 		lcd2->write(17); // Turn backlight on
 	}
 }
+
+void LCD::off(int i){
+	if(curLCD==1){
+		lcd1->write(18); // Turn backlight off
+	}else if(curLCD==2){
+		lcd2->write(18); // Turn backlight off
+	}
+}

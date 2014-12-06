@@ -1,3 +1,5 @@
+#include "GameOfLife.h"
+#include "Rainbow.h"
 #include "DrMario.h"
 #include "MegaMaze.h"
 #include "Tetris.h"
@@ -22,7 +24,7 @@ int curGame=0;
 int displayedGame=0;
 Game *currentGame = NULL;
 bool paused = true;
-String gameNames[] = {"  Mega Maze   ","    Tetris    ","    Snake     "," Connect Four ","  Visualizer  ","  Flashlight   "};
+String gameNames[] = {"    Tetris    ","  Mega Maze   ","    Snake     "," Connect Four "," Game of Life ","  Visualizer  ","  Flashlight  ","   Rainbow   "};
 
 int main(void) {
 	init();
@@ -116,10 +118,10 @@ void loop() {
 				delete currentGame;
 				switch(displayedGame){
 				case 0:
-					currentGame = new MegaMaze(controller,strip,lcd);
+					currentGame = new Tetris(controller,strip,lcd);
 					break;
 				case 1:
-					currentGame = new Tetris(controller,strip,lcd);
+					currentGame = new MegaMaze(controller,strip,lcd);
 					break;
 				case 2:
 					currentGame = new Snake(controller,strip,lcd);
@@ -128,10 +130,16 @@ void loop() {
 					currentGame = new ConnectFour(controller,strip,lcd);
 					break;
 				case 4:
-					currentGame = new Visualizer(controller,strip,lcd);
+					currentGame = new GameOfLife(controller,strip,lcd);
 					break;
 				case 5:
+					currentGame = new Visualizer(controller,strip,lcd);
+					break;
+				case 6:
 					currentGame = new Flashlight(controller,strip,lcd);
+					break;
+				case 7:
+					currentGame = new Rainbow(controller,strip,lcd);
 					break;
 				}
 			}else{

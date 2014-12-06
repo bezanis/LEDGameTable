@@ -13,6 +13,7 @@ public:
 	void print(unsigned long l);
 	void print(char c);
 	void setLCD(int i);
+	void off(int i);
 private:
 	SoftwareSerial * lcd1;
 	SoftwareSerial * lcd2;
